@@ -1,0 +1,18 @@
+@import "/src/styles/variables.scss";
+
+._ {
+  position: relative;
+}
+.title {
+  font-weight: 700;
+}
+.dropdown {
+  margin-top: 10px;
+}
+.checkbox {
+  display: inline-block;
+  margin-top: 10px;
+  span {
+    margin-left: 5px;
+  }
+}

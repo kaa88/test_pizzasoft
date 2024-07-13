@@ -1,0 +1,30 @@
+@import "/src/styles/variables.scss";
+
+._ {
+  position: relative;
+}
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  padding: 10px 0;
+  background-color: var(--color-lightgray);
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    justify-content: space-around;
+    grid-gap: 10px;
+  }
+}
+.headerBlock {
+  border: solid 2px var(--color-background);
+  border-radius: $border-radius;
+  padding: 10px;
+}
+.main {
+  margin-top: 20px;
+}
+.addBtn {
+  margin-bottom: 20px;
+}

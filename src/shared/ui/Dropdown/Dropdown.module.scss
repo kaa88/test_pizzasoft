@@ -1,0 +1,66 @@
+@import "/src/styles/variables.scss";
+
+._ {
+  position: relative;
+  min-width: 150px;
+}
+.header {
+  background-color: var(--color-white);
+  width: 100%;
+  height: 44px;
+  font-size: 16px;
+  border: solid 1px var(--color-borders);
+  border-radius: $border-radius;
+  color: var(--color-midgray);
+  padding: 0 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: color $timer-dropdown, border-color $timer-dropdown;
+  i {
+    margin-left: 10px;
+    font-style: normal;
+    display: block;
+    transform: rotate(-90deg);
+  }
+  .active & {
+    border-color: var(--color-text);
+    color: var(--color-text);
+  }
+  .success &:not(:disabled) {
+    border-color: var(--color-success);
+  }
+  .error &:not(:disabled) {
+    border-color: var(--color-danger);
+  }
+}
+.list {
+  position: absolute;
+  top: calc(100% + 3px);
+  left: 0;
+  width: 100%;
+  visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-white);
+  border: solid 1px var(--color-text);
+  opacity: 0;
+  transition: opacity $timer-dropdown, visibility $timer-dropdown;
+  .active & {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+.item {
+  padding: 0 12px;
+  height: 30px;
+  font-size: 16px;
+  background-color: transparent;
+  color: var(--color-text);
+  text-align: left;
+  transition: background-color $timer-hover;
+  &.active,
+  &:hover {
+    background-color: var(--color-primary-focus);
+  }
+}

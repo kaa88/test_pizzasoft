@@ -1,0 +1,57 @@
+@import "/src/styles/variables.scss";
+
+._ {
+  h1 span {
+    font-size: 18px;
+    color: var(--color-text-inactive);
+  }
+}
+.card {
+  padding: 20px 30px;
+  background-color: var(--color-white);
+  border-radius: $border-radius;
+}
+.block {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  align-items: center;
+  min-height: 44px;
+  @media (max-width: ($media-mobile)) {
+    grid-template-columns: 100%;
+  }
+}
+.blockTitle {
+  font-weight: 700;
+  @media (max-width: ($media-mobile)) {
+    margin-bottom: 5px;
+  }
+}
+.blockError {
+  grid-row: 2;
+  grid-column: 2;
+  margin-top: 3px;
+  font-size: 12px;
+  color: var(--color-danger);
+  @media (max-width: ($media-mobile)) {
+    grid-row: 3;
+    grid-column: 1;
+  }
+}
+.drop {
+  width: 100%;
+}
+.checkbox {
+  justify-self: start;
+}
+.cardButtons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  .button {
+    min-width: 100px;
+    &:not(:first-child) {
+      margin-left: 10px;
+    }
+  }
+}

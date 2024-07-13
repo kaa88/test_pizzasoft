@@ -1,0 +1,75 @@
+@import "/src/styles/variables.scss";
+
+._ {
+  position: relative;
+  min-width: 50px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  // Sizes
+  // default
+  font-size: 16px;
+  height: 44px;
+  line-height: 1.2;
+  padding: 0 16px;
+  border-radius: $border-radius;
+
+  // Colors
+  // default
+  --btn-color: var(--color-text);
+  --btn-color-hover: var(--color-white);
+  --btn-color-disabled: var(--color-text);
+
+  --btn-bg: var(--color-primary);
+  --btn-bg-hover: var(--color-primary-hover);
+  --btn-bg-disabled: var(--color-lightgray);
+
+  --btn-border-color: transparent;
+  --btn-border-color-hover: transparent;
+  --btn-border-color-disabled: transparent;
+
+  --btn-focus: var(--color-primary-focus);
+
+  background-color: var(--btn-bg);
+  color: var(--btn-color);
+  fill: var(--btn-color);
+  border: solid 1px var(--btn-border-color);
+  transition: background-color $timer-hover, color $timer-hover,
+    border-color $timer-hover;
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--btn-bg-hover);
+      color: var(--btn-color-hover);
+      fill: var(--btn-color-hover);
+      border-color: var(--btn-border-color-hover);
+    }
+  }
+  &:active,
+  &.active {
+    background-color: var(--btn-bg-hover);
+    color: var(--btn-color-hover);
+    fill: var(--btn-color-hover);
+    border-color: var(--btn-border-color-hover);
+  }
+  &:disabled,
+  &.disabled {
+    background-color: var(--btn-bg-disabled);
+    color: var(--btn-color-disabled);
+    fill: var(--btn-color-disabled);
+    border-color: var(--btn-border-color-disabled);
+    pointer-events: none;
+    opacity: 1;
+    & > * {
+      opacity: 0.5;
+    }
+  }
+  &.success {
+    --btn-bg: var(--color-success);
+    --btn-bg-hover: var(--color-success);
+  }
+  &.error {
+    --btn-bg: var(--color-danger);
+    --btn-bg-hover: var(--color-danger);
+  }
+}

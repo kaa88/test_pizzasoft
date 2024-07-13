@@ -1,0 +1,21 @@
+@import "/src/styles/variables.scss";
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+.item {
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: var(--color-white);
+  border-radius: $border-radius;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-gap: 10px;
+  justify-content: space-between;
+  align-items: start;
+  &.archive {
+    color: var(--color-text-inactive);
+    // opacity: 0.8;
+  }
+}

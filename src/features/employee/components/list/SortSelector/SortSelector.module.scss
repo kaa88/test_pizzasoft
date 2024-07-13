@@ -1,0 +1,15 @@
+@import "/src/styles/variables.scss";
+
+._ {
+  display: flex;
+  flex-direction: column;
+  input {
+    margin-top: 10px;
+  }
+  label span {
+    margin-left: 5px;
+  }
+}
+.title {
+  font-weight: 700;
+}

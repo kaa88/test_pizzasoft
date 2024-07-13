@@ -1,0 +1,13 @@
+._ {
+  padding: 20px 0;
+  h1 {
+    font-size: 60px;
+    margin-bottom: 30px;
+  }
+}
+body .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
