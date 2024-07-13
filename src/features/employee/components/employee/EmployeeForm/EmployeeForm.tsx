@@ -27,8 +27,8 @@ export type Inputs = {
 
 interface EmployeeFormProps extends ComponentPropsWithoutRef<"form"> {
   employee: Employee | null;
-  onSubmit: () => void;
-  onCancel: () => void;
+  onSubmit?: () => void;
+  onCancel?: () => void;
 }
 
 export const EmployeeForm = ({
@@ -86,7 +86,7 @@ export const EmployeeForm = ({
       );
     } else dispatch(addEmployee(newEmployee));
 
-    submitCallback();
+    if (submitCallback) submitCallback();
   };
 
   return (
@@ -100,9 +100,12 @@ export const EmployeeForm = ({
         <InputText
           {...register("name", validation.name)}
           state={!!errors.name ? "error" : undefined}
+          data-testid="name"
         />
         {!!errors.name?.message && (
-          <p className={styles.blockError}>{errors.name?.message}</p>
+          <p className={styles.blockError} role="alert">
+            {errors.name?.message}
+          </p>
         )}
       </div>
 
@@ -122,12 +125,15 @@ export const EmployeeForm = ({
                 {...rest}
                 onChange={handleDropChange}
                 state={!!errors.role ? "error" : undefined}
+                data-testid="role"
               />
             );
           }}
         />
         {!!errors.role?.message && (
-          <p className={styles.blockError}>{errors.role?.message}</p>
+          <p className={styles.blockError} role="alert">
+            {errors.role?.message}
+          </p>
         )}
       </div>
 
@@ -136,9 +142,12 @@ export const EmployeeForm = ({
         <InputPhone
           {...register("phone", validation.phone)}
           state={!!errors.phone ? "error" : undefined}
+          data-testid="phone"
         />
         {!!errors.phone?.message && (
-          <p className={styles.blockError}>{errors.phone?.message}</p>
+          <p className={styles.blockError} role="alert">
+            {errors.phone?.message}
+          </p>
         )}
       </div>
 
@@ -147,9 +156,12 @@ export const EmployeeForm = ({
         <InputDate
           {...register("birthday", validation.birthday)}
           state={!!errors.birthday ? "error" : undefined}
+          data-testid="birthday"
         />
         {!!errors.birthday?.message && (
-          <p className={styles.blockError}>{errors.birthday?.message}</p>
+          <p className={styles.blockError} role="alert">
+            {errors.birthday?.message}
+          </p>
         )}
       </div>
 
@@ -166,6 +178,7 @@ export const EmployeeForm = ({
                 type="checkbox"
                 checked={value}
                 {...rest}
+                data-testid="archive"
               />
             );
           }}
@@ -173,7 +186,12 @@ export const EmployeeForm = ({
       </div>
 
       <div className={styles.cardButtons}>
-        <Button className={styles.button} variant="success" type="submit">
+        <Button
+          className={styles.button}
+          variant="success"
+          type="submit"
+          data-testid="submit-btn"
+        >
           Сохранить
         </Button>
         <Button className={styles.button} onClick={onCancel} type="button">

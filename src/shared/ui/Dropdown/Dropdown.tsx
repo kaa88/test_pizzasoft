@@ -54,6 +54,7 @@ export const Dropdown = memo(
           active && styles.active,
           !!state && styles[state]
         )}
+        {...props}
       >
         <button className={styles.header} type="button" onClick={toggle}>
           <span>
